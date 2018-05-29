@@ -23,10 +23,27 @@ class Monthview extends React.Component<any, any> {
   }
 
   componentWillMount(){
-    let date = new Date();
-    let firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-    let startOfMonthDay = firstDay.getDay();
-    let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+     let cachedMonth = localStorage.getItem('month');
+     let date = new Date();
+     let firstDay = null;
+     let lastDay = null;
+     let startOfMonthDay=null;
+
+     if(cachedMonth){
+       console.log('cached month ' + cachedMonth);
+       this.setState({month:Number(cachedMonth)});
+       firstDay = new Date(date.getFullYear(), Number(cachedMonth), 1);
+       lastDay = new Date(date.getFullYear(), Number(cachedMonth)+1, 0);
+      console.log('cached month ' + cachedMonth + ' first day ' + firstDay + ' last ' + lastDay);
+        startOfMonthDay = firstDay.getDay();
+     }
+     else{
+       firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+       lastDay = new Date(date.getFullYear(), date.getMonth()+1, 0);
+       startOfMonthDay = firstDay.getDay();
+    }
+
     let entries = JSON.parse(String(localStorage.getItem('entries')));
 
     this.setState({cachedEntries:entries, lastDayOfMonth:lastDay.getDay(), daysBeforeStart:(6-(6-startOfMonthDay)), daysInMonth:daysInEachMonth[this.state.month]});
@@ -71,6 +88,8 @@ class Monthview extends React.Component<any, any> {
     var newLastDay = new Date(date.getFullYear(), newMonth+1, 0).getDay();
     console.log('new last day :' + newLastDay);
 
+    localStorage.setItem('month',newMonth.toString());
+
     this.setState({ lastDayOfMonth:newLastDay, daysBeforeStart:newDaysBeforeStart, month:newMonth, daysInMonth:daysInEachMonth[newMonth]});
   }
 
@@ -92,6 +111,7 @@ class Monthview extends React.Component<any, any> {
     var newLastDay = new Date(date.getFullYear(), newMonth, daysInEachMonth[newMonth]).getDay();
 
     console.log('new last day :' + newLastDay);
+    localStorage.setItem('month',newMonth.toString());
 
     this.setState({ lastDayOfMonth:newLastDay, daysBeforeStart:newDaysBeforeStart, month:newMonth, daysInMonth:daysInEachMonth[newMonth]});
   }
@@ -107,6 +127,8 @@ class Monthview extends React.Component<any, any> {
     for (let i = 1; i <= this.state.daysInMonth; i++) {
          daysInMonthArr.push(i);
     }
+
+    console.log(this.state.daysBeforeStart + ' dbefore start ' + this.state.daysInMonth + ' d in month');
 
     return (
       <div>
