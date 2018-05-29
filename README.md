@@ -1,15 +1,15 @@
-###Calender Technical Excersize 
+## Calender Technical Excersize
 By Andrew Brenycz
 
-##overview
-used create-react-app to start with TypeScript and React, CSS grid for layout, localStorage for persistance with the calendar entries
+## Overview
+used create-react-app to start with TypeScript and React, CSS grid for layout, localStorage for persistence with the calendar entries
 
-##instructions
+## instructions
 clone locally git clone https://github.com/abrenycz/calender-app.git
 npm install for dependencies
 npm start
 Navigate to http://localhost:3000/ in browser
 
-##Browsers:
+## Browsers 
 Tested in Chrome and Edge, IE has issues with CSS grids
 	
