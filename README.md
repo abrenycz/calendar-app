@@ -1,4 +1,4 @@
-## Calender Technical Excersize
+## Calender Technical Exersice
 By Andrew Brenycz
 
 ## Overview
