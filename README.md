@@ -1,11 +1,11 @@
-## Calender Technical Exercise
+## Calendar Technical Exercise
 By Andrew Brenycz
 
 ## Overview
 used create-react-app with TypeScript, CSS grid for layout, localStorage for persistence with the calendar entries
 
 ## Instructions
-1. clone locally git clone https://github.com/abrenycz/calender-app.git
+1. clone locally git clone https://github.com/abrenycz/calendar-app.git
 1. npm install for dependencies
 1. npm start
 1. Navigate to http://localhost:3000/ in browser
