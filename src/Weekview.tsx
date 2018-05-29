@@ -132,8 +132,8 @@ class Weekview extends React.Component<any, any> {
        
        <ul className="day-grid">
          {weekArr.map((x,i)=>
-           <li className="weekview-days">
-           <span className="weekview-header">
+           <li className="weekview-days" key={x+'daysInWeekView'}>
+           <span className="weekview-header" >
              {x>0&&x<daysInEachMonth[cachedMonth]?
                x + ' - ' + this.printDay(i):null}
            </span>

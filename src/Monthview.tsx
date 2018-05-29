@@ -135,10 +135,10 @@ class Monthview extends React.Component<any, any> {
           <Weekheader/>
 
           <ul className="day-grid">
-          {daysBeforeArr.map((x,i) => <li className="before-days"></li>)}
+          {daysBeforeArr.map((x,i) => <li className="before-days" key={x+'beforeDaysInMonth'}></li>)}
         {daysInMonthArr.map((x, i) => 
-              <NavLink exact to="/weekview" onClick={()=>this.clickedDayCell(x)}>
-              <li>
+              <NavLink exact to="/weekview" key={x+'navlink'} onClick={()=>this.clickedDayCell(x)}>
+              <li key={x+'daysInMonth'}>
                 <span className="weekday-header">{x}</span>
                 <span className="weekday-entrynumber">
                   {this.state.cachedEntries[this.state.month]?
